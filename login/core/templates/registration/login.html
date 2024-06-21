@@ -1,0 +1,33 @@
+{% extends 'core/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h3>Login</h3>
+<hr>
+<br>
+
+<form action="" method="post">
+    {% csrf_token %}
+
+    <!-- AGREGO UN CARD DE BOOTSTRAP 5 PARA CONTENER AL FORMULARIO DE LOGUEO -->
+    <div class="card mx-auto" style="width: 30rem;">
+        <div class="card-body">
+            <h5 class="card-title">Ingrese sus credenciales</h5>
+            {{ form | crispy }} <!-- UTILIZO EL FORM DE LOGUEO POR DEFECTO DE DJANGO!!! -->
+            <a href={% url 'home' %} class="card-link">Inicio</a>
+            <a href={% url 'register' %} class="card-link">Registrarse</a>
+            <button class="btn btn-sm btn-primary float-end" type="submit">Iniciar Sesión</button>
+        </div>
+    </div>
+    <!-- <input type="text" name="username" id="" placeholder="Nombre de usuario"> username y password son los nombres de los campos en la BD
+    <br>
+    <input type="password" name="password" id="" placeholder="Contraseña">
+    <br>
+    <button type="submit">Ingresar</button>
+    </div> -->
+
+</form>
+
+{% endblock %}
